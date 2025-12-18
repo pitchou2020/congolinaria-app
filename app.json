@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "recettes-app",
-    "slug": "recettes-app",
-    "version": "1.0.0",
+    "name": "Congolinaria Receitas",
+    "slug": "Congolinaria-Receitas",
+    "version": "1.0.3",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -20,10 +20,17 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.congolinaria.receitas"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "4ed98c85-8b0e-4572-9095-ee08fbcdeb48"
+      }
+    },
+    "owner": "pitchou"
   }
 }

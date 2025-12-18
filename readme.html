@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Congolinaria Receitas – Receitas & Criações Afroveg</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Congolinaria Receitas – app de receitas plant-based, criações autorais do Chef Pitchou e seu caderno pessoal de receitas."
+  />
+
+  <!-- Fonte bonita -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg-main: #0e1d14;
+      --bg-card: #1c2f23;
+      --accent-gold: #c9a23f;
+      --accent-orange: #e85d04;
+      --text-light: #f5f1e8;
+      --text-muted: #9ca3af;
+      --border-soft: #2f4a3a;
+      --radius-lg: 18px;
+      --transition-fast: 0.25s ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1a3324 0, #0e1d14 55%);
+      color: var(--text-light);
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ========= LAYOUT BASE ========= */
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(14, 29, 20, 0.96),
+        rgba(14, 29, 20, 0.82),
+        transparent
+      );
+      border-bottom: 1px solid rgba(201, 162, 63, 0.18);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: radial-gradient(circle at 30% 20%, #f2c94c, #c9a23f);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0e1d14;
+      font-weight: 800;
+      font-size: 19px;
+      letter-spacing: 0.04em;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-text span:first-child {
+      font-size: 15px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+    }
+
+    .brand-text span:last-child {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      font-size: 13px;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      transition: color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-gold);
+      transform: translateY(-1px);
+    }
+
+    .nav-cta {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(201, 162, 63, 0.6);
+      font-size: 12px;
+      color: var(--accent-gold);
+      background: rgba(12, 24, 17, 0.7);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: background var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .nav-cta span.badge {
+      font-size: 10px;
+      background: rgba(232, 93, 4, 0.14);
+      color: var(--accent-orange);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+
+    .nav-cta:hover {
+      background: rgba(201, 162, 63, 0.12);
+      transform: translateY(-1px);
+    }
+
+    /* ========= HERO ========= */
+
+    .hero {
+      padding: 36px 0 40px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--accent-gold);
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(201, 162, 63, 0.45);
+      background: rgba(10, 18, 14, 0.9);
+      margin-bottom: 14px;
+    }
+
+    .tag-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #f2c94c, #e85d04);
+      box-shadow: 0 0 10px rgba(232, 93, 4, 0.7);
+    }
+
+    .hero h1 {
+      font-size: clamp(26px, 4vw, 36px);
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 span.highlight {
+      color: var(--accent-gold);
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 460px;
+      margin-bottom: 18px;
+    }
+
+    .hero-subtitle strong {
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .pill {
+      font-size: 11px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(201, 162, 63, 0.35);
+      color: var(--text-muted);
+      background: rgba(10, 24, 16, 0.9);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .btn-primary {
+      border: none;
+      cursor: pointer;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #c9a23f, #e85d04);
+      color: #0e1d14;
+      box-shadow: 0 12px 22px rgba(0, 0, 0, 0.65);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+        filter var(--transition-fast);
+    }
+
+    .btn-primary span.badge-soft {
+      font-size: 10px;
+      background: rgba(14, 29, 20, 0.14);
+      padding: 3px 8px;
+      border-radius: 999px;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px) scale(1.01);
+      filter: brightness(1.05);
+      box-shadow: 0 16px 28px rgba(0, 0, 0, 0.75);
+    }
+
+    .btn-ghost {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px dashed rgba(201, 162, 63, 0.6);
+      background: rgba(10, 24, 16, 0.9);
+      color: var(--accent-gold);
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: border-color var(--transition-fast),
+        background var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .btn-ghost:hover {
+      border-style: solid;
+      background: rgba(201, 162, 63, 0.09);
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .hero-note span {
+      color: var(--accent-gold);
+    }
+
+    .hero-phone {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .phone-frame {
+      width: min(280px, 65vw);
+      border-radius: 32px;
+      padding: 10px;
+      background: radial-gradient(circle at 20% 0, #f2c94c, #c9a23f 35%, #0e1d14 90%);
+      box-shadow: 0 24px 40px rgba(0, 0, 0, 0.75);
+      animation: floatPhone 5s infinite ease-in-out;
+    }
+
+    .phone-inner {
+      background: #000;
+      border-radius: 24px;
+      padding: 6px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .phone-inner::before {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.26);
+    }
+
+    .phone-screen {
+      margin-top: 16px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(201, 162, 63, 0.4);
+    }
+
+    .phone-glow {
+      position: absolute;
+      inset: 10%;
+      border-radius: 32px;
+      background: radial-gradient(
+        circle at 20% 0,
+        rgba(242, 201, 76, 0.16),
+        transparent
+      );
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
+    .hero-badge-stack {
+      position: absolute;
+      left: -10px;
+      bottom: -6px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .hero-badge {
+      background: rgba(12, 24, 17, 0.94);
+      border-radius: 12px;
+      padding: 8px 12px;
+      border: 1px solid rgba(201, 162, 63, 0.4);
+      font-size: 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 12px 22px rgba(0, 0, 0, 0.7);
+    }
+
+    .hero-badge span.icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: rgba(232, 93, 4, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: var(--accent-orange);
+    }
+
+    .hero-badge strong {
+      color: var(--accent-gold);
+      font-weight: 600;
+      margin-right: 4px;
+    }
+
+    @keyframes floatPhone {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    /* ========= SEÇÕES GENERICAS ========= */
+
+    section {
+      padding: 30px 0;
+    }
+
+    section h2 {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    /* ========= FEATURES ========= */
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .feature-card {
+      background: rgba(17, 35, 25, 0.95);
+      border-radius: var(--radius-lg);
+      padding: 14px 14px 16px;
+      border: 1px solid rgba(47, 74, 58, 0.9);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+        border-color var(--transition-fast), background var(--transition-fast);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        circle at 10% 0,
+        rgba(201, 162, 63, 0.18),
+        transparent 52%
+      );
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+      pointer-events: none;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(201, 162, 63, 0.65);
+      background: rgba(18, 38, 27, 0.98);
+      box-shadow: 0 18px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    .feature-card:hover::before {
+      opacity: 1;
+    }
+
+    .feature-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 30% 20%, #f2c94c, #e85d04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .feature-card h3 {
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: var(--accent-gold);
+    }
+
+    .feature-card p {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .feature-tag {
+      font-size: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--accent-gold);
+      background: rgba(201, 162, 63, 0.12);
+      padding: 4px 8px;
+      border-radius: 999px;
+    }
+
+    /* ========= GALERIA ========= */
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .gallery-card {
+      background: var(--bg-card);
+      border-radius: 14px;
+      padding: 8px;
+      border: 1px solid var(--border-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+        border-color var(--transition-fast);
+      overflow: hidden;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(201, 162, 63, 0.65);
+      box-shadow: 0 14px 26px rgba(0, 0, 0, 0.7);
+    }
+
+    .gallery-thumb {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(201, 162, 63, 0.26);
+    }
+
+    .gallery-info {
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .gallery-info span.title {
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    /* ========= SOBRE O CHEF ========= */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .about-card {
+      background: rgba(17, 35, 25, 0.96);
+      border-radius: var(--radius-lg);
+      padding: 16px 16px 18px;
+      border: 1px solid rgba(47, 74, 58, 0.9);
+      box-shadow: 0 16px 26px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        circle at 10% 0,
+        rgba(201, 162, 63, 0.18),
+        transparent 55%
+      );
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .about-card h3 {
+      font-size: 14px;
+      margin-bottom: 4px;
+      color: var(--accent-gold);
+    }
+
+    .about-card p {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .about-tagline {
+      font-size: 11px;
+      color: var(--text-light);
+      margin-bottom: 10px;
+    }
+
+    .about-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 10px;
+    }
+
+    .about-badge {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(10, 24, 16, 0.96);
+      border: 1px solid rgba(201, 162, 63, 0.4);
+      color: var(--accent-gold);
+    }
+
+    .about-photo-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-photo {
+      width: min(260px, 70vw);
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(201, 162, 63, 0.6);
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.75);
+      transform: rotate(-2.5deg);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .about-photo:hover {
+      transform: rotate(0deg) translateY(-3px);
+      box-shadow: 0 20px 36px rgba(0, 0, 0, 0.85);
+    }
+
+    .about-caption {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 6px;
+    }
+
+    /* ========= CTA FINAL ========= */
+
+    .cta-block {
+      background: linear-gradient(135deg, #c9a23f, #e85d04);
+      border-radius: 22px;
+      padding: 18px 18px 16px;
+      color: #0e1d14;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 22px 40px rgba(0, 0, 0, 0.75);
+    }
+
+    .cta-block h3 {
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    .cta-block p {
+      font-size: 12px;
+      max-width: 340px;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .cta-primary {
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: #0e1d14;
+      color: var(--accent-gold);
+      border: none;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .cta-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 26px rgba(0, 0, 0, 0.75);
+    }
+
+    .cta-secondary {
+      font-size: 11px;
+      border-radius: 999px;
+      padding: 8px 12px;
+      border: 1px solid rgba(14, 29, 20, 0.45);
+      background: rgba(14, 29, 20, 0.08);
+    }
+
+    /* ========= FOOTER ========= */
+
+    footer {
+      padding: 18px 0 22px;
+      font-size: 11px;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(47, 74, 58, 0.8);
+      margin-top: 34px;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .footer-row a {
+      color: var(--accent-gold);
+      font-size: 11px;
+    }
+
+    /* ========= RESPONSIVO ========= */
+
+    @media (max-width: 880px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-phone {
+        order: -1;
+        margin-bottom: 8px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 24px;
+      }
+
+      section {
+        padding: 24px 0;
+      }
+
+      .features-grid,
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-block {
+        padding: 16px 14px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- ========= HEADER ========= -->
+    <header>
+      <div class="container nav">
+        <div class="brand">
+          <div class="brand-mark">CR</div>
+          <div class="brand-text">
+            <span>CONGOLINARIA</span>
+            <span>Receitas &amp; Criações</span>
+          </div>
+        </div>
+
+        <nav class="nav-links">
+          <a href="#features">Funcionalidades</a>
+          <a href="#gallery">Telas do app</a>
+          <a href="#about">Chef Pitchou</a>
+          <a href="#download">Download</a>
+
+          <button class="nav-cta" type="button">
+            <span>Versão inicial</span>
+            <span class="badge">Plant-based • Afroveg</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ========= HERO ========= -->
+    <main>
+      <section class="hero" id="topo">
+        <div class="container hero-grid">
+          <div>
+            <div class="tagline">
+              <span class="tag-dot"></span>
+              Congolinaria Receitas &amp; Criações
+            </div>
+
+            <h1>
+              Seu app de <span class="highlight">receitas plant-based</span> e
+              caderno criativo de cozinha.
+            </h1>
+
+            <p class="hero-subtitle">
+              Reúne <strong>receitas afroveg do Congolinaria</strong>,
+              criações autorais do Chef Pitchou e um espaço para você
+              registrar, adaptar e reinventar suas próprias receitas.
+            </p>
+
+            <div class="hero-badges">
+              <span class="pill">🌿 100% plant-based</span>
+              <span class="pill">📒 Caderno pessoal de receitas</span>
+              <span class="pill">👨🏾‍🍳 Tradição Congo-Brasil</span>
+            </div>
+
+            <div class="hero-actions">
+              <button class="btn-primary" type="button">
+                <span>Baixar na Play Store</span>
+                <span class="badge-soft">em breve</span>
+              </button>
+
+              <button class="btn-ghost" type="button" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">
+                Ver como funciona
+                <span>↓</span>
+              </button>
+            </div>
+
+            <p class="hero-note">
+              💛 Ideal para quem cozinha em casa, trabalha com gastronomia
+              ou quer levar um <span>caderno de receitas afroveg</span> no bolso.
+            </p>
+          </div>
+
+          <div class="hero-phone">
+            <div class="phone-frame">
+              <div class="phone-inner">
+                <div class="phone-screen">
+                  <!-- TROCAR ESTE SRC PELO PRINT REAL DO APP -->
+                  <img src="img/app-mockup.png" alt="Tela do app Congolinaria Receitas" />
+                </div>
+              </div>
+              <div class="phone-glow"></div>
+            </div>
+
+            <div class="hero-badge-stack">
+              <div class="hero-badge">
+                <span class="icon">👨🏾‍🍳</span>
+                <div>
+                  <strong>Chef Pitchou</strong><br />
+                  Receitas autorais + adaptações livres.
+                </div>
+              </div>
+              <div class="hero-badge">
+                <span class="icon">📝</span>
+                <div>
+                  <strong>Caderno pessoal</strong><br />
+                  Crie, edite, salve e compartilhe.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========= FUNCIONALIDADES ========= -->
+      <section id="features">
+        <div class="container">
+          <h2>O que o app oferece</h2>
+          <p class="section-subtitle">
+            Congolinaria Receitas é um híbrido: app de receitas + caderno de
+            criação, pensado para a cozinha real – com tempo, ingredientes e adaptações.
+          </p>
+
+          <div class="features-grid">
+            <article class="feature-card">
+              <div class="feature-icon">📚</div>
+              <h3>Receitas Afroveg Congolinaria</h3>
+              <p>
+                Acesso a uma seleção de receitas plant-based inspiradas na
+                cozinha do Congolinaria: moquecas, guisados, feijões, molhos,
+                acompanhamentos e sobremesas sem crueldade.
+              </p>
+              <span class="feature-tag">Atualizações periódicas</span>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-icon">✍🏾</div>
+              <h3>Seu caderno de receitas</h3>
+              <p>
+                Crie receitas do zero, adapte as oficiais, registre segredos
+                de família e deixe tudo organizado em um caderno digital com
+                cara de bloco de notas.
+              </p>
+              <span class="feature-tag">Edição livre</span>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-icon">🧺</div>
+              <h3>Ingredientes inteligentes</h3>
+              <p>
+                Ajuste porções e veja os ingredientes recalculados
+                automaticamente, com conversões suaves de frações
+                (½, 1½, ¾…) para facilitar o mise en place.
+              </p>
+              <span class="feature-tag">Escala por porções</span>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-icon">📱</div>
+              <h3>Funciona offline</h3>
+              <p>
+                Depois de instalado, você pode consultar suas receitas mesmo
+                sem internet. A conexão é usada apenas para atualizações.
+              </p>
+              <span class="feature-tag">Ideal para cozinha profissional</span>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-icon">📸</div>
+              <h3>Foto das suas criações</h3>
+              <p>
+                Tire fotos com a câmera ou escolha da galeria para ilustrar
+                suas receitas, montar portfólio e registrar evolução na cozinha.
+              </p>
+              <span class="feature-tag">Caderno visual</span>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-icon">📤</div>
+              <h3>Compartilhar &amp; exportar</h3>
+              <p>
+                Envie suas receitas por e-mail, compartilhe pelo WhatsApp e
+                exporte em PDF para imprimir ou salvar em outros dispositivos.
+              </p>
+              <span class="feature-tag">Envio em poucos toques</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========= GALERIA ========= -->
+      <section id="gallery">
+        <div class="container">
+          <h2>Um pouco da experiência dentro do app</h2>
+          <p class="section-subtitle">
+            Telas pensadas para você cozinhar com calma, criatividade
+            e organização – seja em casa ou no restaurante.
+          </p>
+
+          <div class="gallery-grid">
+            <div class="gallery-card">
+              <div class="gallery-thumb">
+                <!-- TROCAR SRC PELO PRINT REAL -->
+                <img src="img/screen1.png" alt="Lista de receitas no app" />
+              </div>
+              <div class="gallery-info">
+                <span class="title">Lista de receitas</span>
+                <span>2 colunas • cards com fotos</span>
+              </div>
+            </div>
+
+            <div class="gallery-card">
+              <div class="gallery-thumb">
+                <!-- TROCAR SRC PELO PRINT REAL -->
+                <img src="img/screen2.png" alt="Detalhe da receita com porções" />
+              </div>
+              <div class="gallery-info">
+                <span class="title">Detalhes &amp; porções</span>
+                <span>Ajuste de ingredientes automático</span>
+              </div>
+            </div>
+
+            <div class="gallery-card">
+              <div class="gallery-thumb">
+                <!-- TROCAR SRC PELO PRINT REAL -->
+                <img src="img/screen3.png" alt="Tela de criação de receita caderno" />
+              </div>
+              <div class="gallery-info">
+                <span class="title">Caderno de criação</span>
+                <span>Bloco de notas com linhas</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========= SOBRE CHEF PITCHOU ========= -->
+      <section id="about">
+        <div class="container about-grid">
+          <div class="about-card">
+            <h3>👨🏾‍🍳 Sobre o Chef Pitchou</h3>
+            <p class="about-tagline">
+              Cozinha plant-based com alma congolesa e coração brasileiro.
+            </p>
+            <p>
+              Chef Pitchou é o criador do Congolinaria, restaurante afroveg
+              que une referências do Congo-Kinshasa, da diáspora africana e
+              dos ingredientes brasileiros em pratos afetivos, coloridos e
+              politicamente conscientes.
+            </p>
+            <p>
+              O app Congolinaria Receitas nasce da vontade de
+              <strong>compartilhar essa cozinha</strong> e
+              <strong>empoderar outras pessoas</strong> a criarem suas próprias
+              versões: adaptando tempo, ingredientes, técnicas e histórias.
+            </p>
+            <p>
+              Mais do que um aplicativo de receitas, é um convite:
+              cozinhar, registrar, revisitar e reinventar a cada temporada.
+            </p>
+
+            <div class="about-badges">
+              <span class="about-badge">Plant-Based</span>
+              <span class="about-badge">Afroveg</span>
+              <span class="about-badge">Culinária do Congo</span>
+              <span class="about-badge">Criações autorais</span>
+            </div>
+          </div>
+
+          <div class="about-photo-wrap">
+            <div>
+              <!-- TROCAR SRC POR UMA FOTO DO CHEF / COZINHA -->
+              <div class="about-photo">
+                <img src="img/chef-pitchou.png" alt="Chef Pitchou na cozinha" />
+              </div>
+              <p class="about-caption">
+                Congolinaria Receitas – um pedaço da cozinha do Chef Pitchou no seu bolso.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========= CTA DOWNLOAD ========= -->
+      <section id="download">
+        <div class="container">
+          <div class="cta-block">
+            <div>
+              <h3>Leve o Congolinaria Receitas para a sua cozinha.</h3>
+              <p>
+                Em breve disponível na Play Store. Enquanto isso, você já pode
+                instalar a versão de testes, explorar receitas plant-based e
+                começar seu próprio caderno afroveg de criações.
+              </p>
+            </div>
+
+            <div class="cta-actions">
+              <button class="cta-primary" type="button">
+                <span>Baixar na Play Store</span>
+                <span>em breve</span>
+              </button>
+              <div class="cta-secondary">
+                Quer testar antes? Use o APK de testes ou fale com a equipe Congolinaria.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========= FOOTER ========= -->
+    <footer>
+      <div class="container footer-row">
+        <span>© Congolinaria Receitas &amp; Criações – {ano atual}</span>
+        <span>Desenvolvido com 🌿 por Congolinaria • Chef Pitchou</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
