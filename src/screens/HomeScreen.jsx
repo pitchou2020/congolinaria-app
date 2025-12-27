@@ -189,6 +189,14 @@ export default function HomeScreen({ navigation }) {
         onChangeText={setSearch}
       />
 
+      <TouchableOpacity
+  style={styles.proBtn}
+  onPress={() => navigation.navigate('Coleções PRO')}
+>
+  <Text style={styles.proBtnText}>👑 Coleções PRO</Text>
+</TouchableOpacity>
+
+
       {/* FILTRO FAVORITOS */}
       <TouchableOpacity
         onPress={() => setOnlyFav(!onlyFav)}
@@ -402,5 +410,21 @@ exportText: {
   fontWeight: '900',
   fontSize: 16,
 },
+
+proBtn: {
+  backgroundColor: "#C9A23F",
+  borderRadius: 14,
+  paddingVertical: 14,
+  alignItems: "center",
+  marginBottom: 12,
+  elevation: 4,
+},
+proBtnText: {
+  color: "#0E1D14",
+  fontSize: 16,
+  fontWeight: "900",
+  letterSpacing: 0.5,
+},
+
 
 });
