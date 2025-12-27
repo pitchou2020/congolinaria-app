@@ -1,9 +1,24 @@
-import { View, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { colors, radius, spacing } from '../styles/theme';
 import { shadowCard } from '../styles/shadows';
 
 export default function Card({ children, style }) {
-  return <View style={[styles.card, style]}>{children}</View>;
+  const renderChildren = () => {
+    if (
+      typeof children === 'string' ||
+      typeof children === 'number'
+    ) {
+      return <Text>{children}</Text>;
+    }
+
+    return children;
+  };
+
+  return (
+    <View style={[styles.card, style]}>
+      {renderChildren()}
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

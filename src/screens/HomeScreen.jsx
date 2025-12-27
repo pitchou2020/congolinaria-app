@@ -16,6 +16,8 @@ import {
   toggleFavorite,
 } from "../data/recipesStorage";
 import { exportCongolinariaNotebook } from '../utils/congolinariaPdf';
+import CuradoriaSection from "../components/CuradoriaSection";
+
 
 const API_URL = "https://congolinaria.com.br/api/receita_autoral.php";
 
@@ -179,6 +181,8 @@ export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Congolinaria Receitas</Text>
+{/* CURADORIA (isolada) */}
+<CuradoriaSection navigation={navigation} />
 
       {/* BUSCA */}
       <TextInput
